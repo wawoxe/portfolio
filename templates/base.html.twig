@@ -11,7 +11,11 @@
     {% endblock %}
 </head>
 <body>
-{% block body %}{% endblock %}
+{% block body %}
+    <main>
+        {% block main %}{% endblock %}
+    </main>
+{% endblock %}
 
 {% block scripts %}
     {{ encore_entry_script_tags('base') }}
