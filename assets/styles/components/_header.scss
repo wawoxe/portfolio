@@ -1,0 +1,41 @@
+@import "../abstracts/variables";
+
+header {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  position: relative;
+
+  padding: 0 1rem;
+  margin: 3rem 0;
+
+  max-width: 600px;
+
+  & .logo {
+    margin-left: 1.5rem;
+
+    line-height: 1rem;
+
+    font-size: 1.875rem;
+
+    text-transform: uppercase;
+
+    font-weight: $boldWeight;
+  }
+
+  & .button {
+    line-height: 1rem;
+
+    background-color: $dark-800;
+    color: $white;
+
+    border: 1px solid $dark-700;
+    border-radius: 0.25rem;
+
+    text-decoration: none;
+
+    padding: 0.5rem 0.75rem;
+  }
+}

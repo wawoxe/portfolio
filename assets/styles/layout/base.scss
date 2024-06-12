@@ -1,2 +1,8 @@
 @import "../base/normalize";
 @import "../base/typography";
+@import "main";
+
+body {
+  background-color: $dark-900;
+  color: $white;
+}

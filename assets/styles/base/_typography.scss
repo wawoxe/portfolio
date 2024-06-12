@@ -1,3 +1,9 @@
+@import "~@fontsource/inter/400.css";
+@import "~@fontsource/inter/700.css";
+@import "../abstracts/variables";
+
 html, body {
-  font-size: 18px;
+  font-family: $interFont;
+  font-size: $defaultSize;
+  font-weight: $regularWeight;
 }
