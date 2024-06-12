@@ -14,15 +14,26 @@
         "webpack": "^5.74.0",
         "webpack-cli": "^4.10.0",
         "webpack-notifier": "^1.15.0",
-        "autoprefixer": "^10.4.19"
+        "autoprefixer": "^10.4.19",
+        "eslint": "^8.57.0",
+        "eslint-config-prettier": "^9.1.0",
+        "@typescript-eslint/eslint-plugin": "^7.10.0",
+        "@typescript-eslint/parser": "^7.10.0",
+        "husky": "^9.0.11",
+        "lint-staged": "^15.2.4",
+        "prettier": "^3.2.5"
     },
     "license": "MIT",
     "private": true,
     "scripts": {
+        "prepare": "husky",
         "dev-server": "encore dev-server",
         "dev": "encore dev",
         "watch": "encore dev --watch",
-        "build": "encore production --progress"
+        "build": "encore production --progress",
+        "lint": "eslint --ext .js,.ts assets/scripts",
+        "lint:fix": "eslint --ext .js,.ts assets/scripts --fix",
+        "prettier": "prettier --ignore-path .gitignore --write \"assets/scripts/**/*.+(js|ts|json)\""
     },
     "browserslist": [
         "defaults"
