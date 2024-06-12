@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %}
 
+{% block styles %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('home') }}
+{% endblock %}
+
 {% block main %}
-    Homepage
+    {% include '_components/_sections/_about_me.html.twig' %}
 {% endblock %}

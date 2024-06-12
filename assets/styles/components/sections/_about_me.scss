@@ -1,0 +1,27 @@
+@import "../../abstracts/variables";
+
+#about-me {
+  position: relative;
+
+  padding: 0 1rem;
+  margin: 3rem 0 3rem 1.5rem;
+
+  & h1 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+
+    margin-bottom: 1rem;
+  }
+
+  & p {
+    color: $gray;
+
+    line-height: 1.5rem;
+
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
