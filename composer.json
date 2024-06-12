@@ -53,18 +53,25 @@
         },
         "post-install-cmd": [
             "@auto-scripts",
-            "@codestyle:composer"
+            "@codestyle:composer:install"
         ],
         "post-update-cmd": [
             "@auto-scripts",
-            "@codestyle:composer"
+            "@codestyle:composer:update"
         ],
-        "codestyle:composer": [
+        "codestyle:composer:install": [
             "composer install --working-dir=tools/php-cs-fixer",
-            "composer update --working-dir=tools/phpmd"
+            "composer install --working-dir=tools/phpmd",
+            "composer install --working-dir=tools/phpstan"
+        ],
+        "codestyle:composer:update": [
+            "composer update --working-dir=tools/php-cs-fixer",
+            "composer update --working-dir=tools/phpmd",
+            "composer update --working-dir=tools/phpstan"
         ],
         "codestyle:phpcs": "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix --config=tools/php-cs-fixer/.php-cs-fixer.dist.php",
-        "codestyle:phpmd": "tools/phpmd/vendor/bin/phpmd src tests ansi tools/phpmd/rulesets.xml"
+        "codestyle:phpmd": "tools/phpmd/vendor/bin/phpmd src tests ansi tools/phpmd/rulesets.xml",
+        "codestyle:phpstan": "tools/phpstan/vendor/bin/phpstan analyse -c tools/phpstan/phpstan.neon"
     },
     "conflict": {
         "symfony/symfony": "*"
