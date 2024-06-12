@@ -1,4 +1,5 @@
 const Encore = require('@symfony/webpack-encore');
+const {resolve} = require("node:path");
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
@@ -66,6 +67,14 @@ Encore
     // uncomment to get integrity="..." attributes on your script & link tags
     // requires WebpackEncoreBundle 1.4 or higher
     //.enableIntegrityHashes(Encore.isProduction())
+
+    // enables PostCSS support
+    .enablePostCssLoader((options) => {
+        options.postcssOptions = {
+            // the directory where the postcss.config.js file is stored
+            config: resolve(__dirname, 'tools/postcss', 'postcss.config.js')
+        };
+    })
 ;
 
 module.exports = Encore.getWebpackConfig();
