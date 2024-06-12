@@ -62,16 +62,25 @@
         "codestyle:composer:install": [
             "composer install --working-dir=tools/php-cs-fixer",
             "composer install --working-dir=tools/phpmd",
-            "composer install --working-dir=tools/phpstan"
+            "composer install --working-dir=tools/phpstan",
+            "composer install --working-dir=tools/twigcs"
         ],
         "codestyle:composer:update": [
             "composer update --working-dir=tools/php-cs-fixer",
             "composer update --working-dir=tools/phpmd",
-            "composer update --working-dir=tools/phpstan"
+            "composer update --working-dir=tools/phpstan",
+            "composer update --working-dir=tools/twigcs"
         ],
         "codestyle:phpcs": "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix --config=tools/php-cs-fixer/.php-cs-fixer.dist.php",
         "codestyle:phpmd": "tools/phpmd/vendor/bin/phpmd src tests ansi tools/phpmd/rulesets.xml",
-        "codestyle:phpstan": "tools/phpstan/vendor/bin/phpstan analyse -c tools/phpstan/phpstan.neon"
+        "codestyle:phpstan": "tools/phpstan/vendor/bin/phpstan analyse -c tools/phpstan/phpstan.neon",
+        "codestyle:twigcs": "tools/twigcs/vendor/bin/twigcs templates",
+        "codestyle:fix": [
+            "@codestyle:phpcs",
+            "@codestyle:phpstan",
+            "@codestyle:phpmd",
+            "@codestyle:twigcs"
+        ]
     },
     "conflict": {
         "symfony/symfony": "*"
