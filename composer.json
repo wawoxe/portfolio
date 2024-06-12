@@ -52,11 +52,17 @@
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
         "post-install-cmd": [
-            "@auto-scripts"
+            "@auto-scripts",
+            "@codestyle:composer"
         ],
         "post-update-cmd": [
-            "@auto-scripts"
-        ]
+            "@auto-scripts",
+            "@codestyle:composer"
+        ],
+        "codestyle:composer": [
+            "composer install --working-dir=tools/php-cs-fixer"
+        ],
+        "codestyle:phpcs": "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix --config=tools/php-cs-fixer/.php-cs-fixer.dist.php"
     },
     "conflict": {
         "symfony/symfony": "*"
